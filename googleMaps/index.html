@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Project 5 Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="sidenav" id="mySidenav">
+        <aside class="closebtn" href="javascript:void(0)" onclick="closeNav()">×</aside> 
+        <input class="search" data-bind="textInput: query" placeholder="Filter List" type="search">
+        <ul data-bind="foreach: filteredArray">
+            <li class="list" data-bind="text: title, click: $parent.selectItem"></li>
+        </ul>
+    </nav>
+    <nav class="openNav">
+        <aside onclick="openNav()" class="openBtn">☰ List
+        Filter</aside>
+    </nav>
+    <section class="map" id="map"></section> 
+    <!-- Trigger/Open The Modal -->
+    <section class="wiki-links">
+        <button class="wiki" id="wiki">Wikipedia</button> 
+    </section> 
+    <!-- The Modal -->
+    <detail class="modal" id="myModal">
+        <!-- Modal content -->
+        <main class="modal-content">
+            <header class="modal-header">
+                <nav class="close">×</nav>
+                <h2>Wikipedia Links</h2>
+            </header>
+            <article class="modal-body" id="wikiList">
+                <ul data-bind="foreach: wikiElem">
+                    <li data-bind="html: $data"></li>
+                </ul>
+            </article>
+        </main>
+    </detail>
+    <script src="js/knockout-3.4.0.js"></script> 
+    <script src="js/jquery.js"></script>
+    <script src="js/map.js"></script> 
+    <script async onerror="googleError()" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKetSEfle5V7-YsAVUaHuRYLNf8tS8Mw4&callback=googleSuccess"></script>    
+</body>
+</html>
